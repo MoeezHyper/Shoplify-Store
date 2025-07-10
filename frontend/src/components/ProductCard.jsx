@@ -17,9 +17,10 @@ import { useColorModeValue } from "./ui/color-mode";
 import { useProductStore } from "@/store/Product";
 import { toaster } from "@/components/ui/toaster";
 import { useState } from "react";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 const ProductCard = ({ product }) => {
-  const { deleteProduct, updateProduct } = useProductStore();
+  const { deleteProduct, updateProduct, favouriteProduct } = useProductStore();
 
   const [updatedProduct, setUpdatedProduct] = useState(product);
 
@@ -27,16 +28,26 @@ const ProductCard = ({ product }) => {
   const priceColor = useColorModeValue("black", "#C2C2C2");
   const bg = useColorModeValue("white", "gray.800");
 
-  const handleDeleteProduct = async (pid) => {
-    const { success, message } = await deleteProduct(pid);
+  const { toggleFavorite } = useProductStore();
+
+  const handleToggleFavorite = async (id) => {
+    const { success, message } = await toggleFavorite(id);
+
     toaster.create({
       title: success ? "Success" : "Error",
-      description: message,
-      type: "error",
-      duration: 5000,
+      description: success
+        ? "Favorite status updated"
+        : message || "Failed to toggle favorite",
+      type: success ? "success" : "error",
+      duration: 4000,
       closable: true,
     });
   };
+
+  const handleDeleteProduct = async (pid) => {
+    const { success, message } = await deleteProduct(pid);
+  };
+
   const handleUpdateProduct = async (pid, updatedProduct) => {
     const { success, message } = await updateProduct(pid, updatedProduct);
     toaster.create({
@@ -77,6 +88,24 @@ const ProductCard = ({ product }) => {
         </Text>
 
         <HStack justifyContent="space-between">
+          <Box
+            onClick={() => handleToggleFavorite(product._id)}
+            cursor="pointer"
+            display="inline-flex"
+            alignItems="center"
+            justifyContent="center"
+            p={2}
+            borderRadius="full"
+            _hover={{ transform: "scale(1.2)" }}
+            _active={{ transform: "scale(1.4)" }}
+            transition="transform 0.2s"
+          >
+            {product.favorite ? (
+              <FaHeart color="red" size={20} />
+            ) : (
+              <FaRegHeart color="gray" size={20} />
+            )}
+          </Box>
           <Dialog.Root>
             <Dialog.Trigger asChild>
               <Box

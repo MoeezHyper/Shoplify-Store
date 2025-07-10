@@ -28,20 +28,20 @@ const Homepage = () => {
         </Text>
 
         <SimpleGrid
-          columns={{
-            base: 1,
-            md: 2,
-            lg: 3,
-          }}
+          columns={{ base: 1, md: 2, lg: 3 }}
           py={20}
           columnGap="4"
           rowGap="6"
-          w={"full"}
+          w="full"
         >
-          {products.map((product) => (
-            <ProductCard key={product._id} product={product} />
-          ))}
+          {products
+            .slice()
+            .sort((a, b) => (b.favorite === true) - (a.favorite === true))
+            .map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
         </SimpleGrid>
+
         {products.length === 0 && (
           <Text
             fontSize="xl"
