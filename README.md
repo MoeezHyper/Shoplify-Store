@@ -29,12 +29,15 @@ A full-stack web application for managing products. Built with **React**, **Chak
 
 ---
 
-🌐 API Endpoints
-Method	Endpoint	Description
-GET	/api/products	Get all products
-POST	/api/products	Create new product
-DELETE	/api/products/:id	Delete a product by ID
-PUT  /api/products/:id	Updates a product by ID
+## 📦 API Endpoints
+
+| Method | Endpoint             | Description              |
+|--------|----------------------|--------------------------|
+| GET    | `/api/products`      | Get all products         |
+| POST   | `/api/products`      | Create new product       |
+| DELETE | `/api/products/:id`  | Delete a product by ID   |
+| PUT    | `/api/products/:id`  | Update a product by ID   |
+
 
 ---
 
