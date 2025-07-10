@@ -50,5 +50,8 @@ A full-stack web application for managing products. Built with **React**, **Chak
 # Install root dependencies
 npm install
 
+# Build the Project
+npm run build
+
 # Start both frontend and backend together
 npm run start
