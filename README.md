@@ -1,4 +1,4 @@
-# 🛍️ Product Management App
+# 🛍️ Shoplify Store
 
 A full-stack web application for managing products. Built with **React**, **Chakra UI**, **Express.js**, **MongoDB**, and **Vite**.
 
@@ -6,13 +6,16 @@ A full-stack web application for managing products. Built with **React**, **Chak
 
 ## 🚀 Features
 
-- Add, view, and delete products
-- Responsive UI with Chakra UI
-- Global state management using Zustand
-- RESTful API built with Express.js
-- MongoDB for data persistence
-- Toast notifications for better UX
-- Unified dev server (`npm run start`) for both frontend & backend
+- 🛒 Add, update, delete, and view products
+- ❤️ Mark/unmark products as **favorites**
+- 🩷 **Favorites appear first** in the product list
+- 🔥 Heart **pop animation** on favorite toggle
+- ⚡ Responsive UI powered by Chakra UI
+- 🌐 Global state management using Zustand
+- 🧾 RESTful API with Express.js
+- 💾 MongoDB for backend storage
+- ✅ Toast notifications for user feedback
+- 🔄 Unified dev server (`npm run start`) for both frontend & backend
 
 ---
 
@@ -20,7 +23,7 @@ A full-stack web application for managing products. Built with **React**, **Chak
 
 **Frontend:**
 - React + Vite
-- Chakra UI V3
+- Chakra UI v3
 - Zustand
 
 **Backend:**
@@ -31,17 +34,17 @@ A full-stack web application for managing products. Built with **React**, **Chak
 
 ## 📦 API Endpoints
 
-| Method | Endpoint             | Description              |
-|--------|----------------------|--------------------------|
-| GET    | `/api/products`      | Get all products         |
-| POST   | `/api/products`      | Create new product       |
-| DELETE | `/api/products/:id`  | Delete a product by ID   |
-| PUT    | `/api/products/:id`  | Update a product by ID   |
-
+| Method | Endpoint                     | Description                   |
+|--------|------------------------------|-------------------------------|
+| GET    | `/api/products`              | Get all products              |
+| POST   | `/api/products`              | Create a new product          |
+| DELETE | `/api/products/:id`          | Delete a product by ID        |
+| PUT    | `/api/products/:id`          | Update a product by ID        |
+| PUT    | `/api/products/favorite/:id` | Toggle favorite for a product |
 
 ---
 
-### ⚙️ Installation & Run
+## ⚙️ Installation & Run
 
 ```bash
 # Install root dependencies
